@@ -3,4 +3,7 @@
 {% block content %}
     <h1>Hello</h1>
     <h5>Date:{{today}}</h5>
+    <a href="{% url 'notes.list' %}" class="btn btn-primary">
+        Check out my notes
+    </a>
 {% endblock %}

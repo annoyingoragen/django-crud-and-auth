@@ -8,7 +8,7 @@ from django.views.generic import TemplateView
 
 class HomeView (TemplateView):
     template_name= 'home/welcome.html'
-    extra_content= {'today':datetime.today()}
+    extra_context= {'today':datetime.today()}
 
 # def home(request):
 #     return render (request,'home/welcome.html',{'today':datetime.today()})
