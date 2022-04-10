@@ -3,7 +3,7 @@ from urllib.request import Request
 from django.shortcuts import render
 from .models import Notes
 from .forms import NotesForm
-from django.views.generic import DetailView,ListView,CreateView
+from django.views.generic import DetailView,ListView,CreateView,UpdateView
 # Create your views here.
 
 class NotesCreateView(CreateView):
@@ -11,6 +11,10 @@ class NotesCreateView(CreateView):
     form_class=NotesForm
     success_url='/notes/noteslist/'
 
+class NotesUpdateView(UpdateView):
+    model=Notes
+    form_class=NotesForm
+    success_url='/notes/noteslist/'
 
 class NotesListView(ListView):
     model=Notes
