@@ -1,9 +1,11 @@
 from pyexpat import model
+from re import template
 from urllib.request import Request
 from django.shortcuts import render
 from .models import Notes
 from .forms import NotesForm
-from django.views.generic import DetailView,ListView,CreateView,UpdateView
+from django.views.generic import DetailView,ListView,CreateView,UpdateView,DeleteView
+
 # Create your views here.
 
 class NotesCreateView(CreateView):
@@ -14,6 +16,12 @@ class NotesCreateView(CreateView):
 class NotesUpdateView(UpdateView):
     model=Notes
     form_class=NotesForm
+    success_url='/notes/noteslist/'
+
+
+class NotesDeleteView(DeleteView):
+    model=Notes
+    template_name='notes/notes_delete.html'
     success_url='/notes/noteslist/'
 
 class NotesListView(ListView):
