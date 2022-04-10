@@ -37,7 +37,7 @@ class NotesListView(LoginRequiredMixin,ListView):
     model=Notes
     context_object_name="notes"
     template_name='notes/noteslist.html'
-    login_url='/admin/'
+    login_url='login'
 
     #overriding the original method of listview
     def get_queryset(self) :

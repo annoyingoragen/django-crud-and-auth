@@ -4,6 +4,7 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
+from django.contrib.auth.views import LoginView,LogoutView
 # Create your views here.
 
 class HomeView (TemplateView):
@@ -20,3 +21,10 @@ class AuthorizedView (LoginRequiredMixin,TemplateView):
 # @login_required
 # def authorized(request):
 #     return render (request,'home/authorized.html',{'today':datetime.today()})
+
+class LoginInterfaceView(LoginView):
+     template_name='home/login.html'
+
+
+class LogoutInterfaceView(LogoutView):
+     template_name='home/logout.html'
